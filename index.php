@@ -39,8 +39,8 @@ $content = file_get_contents($filePath);
 
 
 
-
 $business = $data['props']['pageProps']['results']['results']['name'];
+$filename = str_replace(' ', '-', $business);
 $description = $data['props']['pageProps']['results']['results']['seo_dt']['desc'];
 $mobile_number = null;
 $email_id = null;
@@ -150,7 +150,7 @@ $modifiedContent = str_replace("YouTubeLink", $YouTubeLink, $modifiedContent);
 $modifiedContent = str_replace("your_location", $your_location, $modifiedContent);
 
 
-$newFilePath = "$business".'.html'; // New file path
+$newFilePath = "$filename".'.html'; // New file path
 file_put_contents($newFilePath, $modifiedContent);
 echo "File has been modified and saved as $newFilePath";
 ?>
